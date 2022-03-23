@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { ChromePicker } from 'react-color'
 import { createBox } from '../../actions/boxes'
-
+import './addbox.css'
 
 class AddBox extends Component {
     constructor(props) {
@@ -13,6 +13,7 @@ class AddBox extends Component {
             color: '#ffffff',
             country: '',
             displayColorPicker: false,
+            msg: '',
         }
     }
 
@@ -39,11 +40,12 @@ class AddBox extends Component {
         price = multiple(country, weight)
 
         this.props.createBox(name, weight, color, country, price).then((data) => {
-            this.setState({ name: data.name, weight: data.weight, color: data.color, country: data.country, price: data.price })
+            this.setState({ name: data.name, weight: data.weight, color: data.color, country: data.country, price: data.price, msg: data})
             console.log(data);
         }).catch((error) => {
             console.log(error);
         })
+     
 
     }
     handleChange = (event) => {
@@ -57,9 +59,11 @@ class AddBox extends Component {
     render() {
         return (
             <div className='add-container'>
-                {JSON.stringify(this.state)}
+                <p className='pop-up'>{this.state.msg}</p>
+                <div className='add'>
+             
                 <div className='add-form' >
-                    <form onSubmit={this.handleSubmit}>
+                    <form id='contact' onSubmit={this.handleSubmit}>
                         <div>
                             <label>
                                 <input type='text' name='name' id='name' placeholder='Name' value={this.state.name}
@@ -69,12 +73,12 @@ class AddBox extends Component {
                             </label>
                             <label>
                                 <input type='number' id='weight' placeholder='Weight' value={this.state.weight <= -1 ? 0 : this.state.weight}
-                                    onChange={this.handleChange}
+                                    onChange={this.handleChange} required
                                 />
                             </label>
                         </div>
                         <div>
-                            <button onClick={this.handleClick}>
+                            <button  className='btn' onClick={this.handleClick}>
                                 {this.state.displayColorPicker ? 'close color picker' : 'pick a color'}
                             </button>
                             {
@@ -85,7 +89,7 @@ class AddBox extends Component {
                                 />
                             }
                             <div>
-                                <p>Country</p>
+                              
                                 <select id='country' value={this.state.country} onChange={this.handleChange}>
                                     <option value=''> --Select Country-- </option>
                                     <option value='Sweden'>Sweden</option>
@@ -95,12 +99,13 @@ class AddBox extends Component {
                                 </select>
                             </div>
                             <div>
-                                <button type="submit">save</button>
+                                <button  className='btn'id='btn-submit' type="submit">save</button>
                             </div>
 
                         </div>
                     </form>
 
+                </div>
                 </div>
 
             </div>
