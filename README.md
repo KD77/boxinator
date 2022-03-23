@@ -28,7 +28,6 @@ spring.datasource.username={ username }
 spring.datasource.password={ password }
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver)```
 
-* compile the source code. 
 
 
 
