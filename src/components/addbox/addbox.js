@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { ChromePicker } from 'react-color'
 import { createBox } from '../../actions/boxes'
+import {useNavigate} from 'react-router-dom'
 import './addbox.css'
 
 class AddBox extends Component {
@@ -33,6 +34,7 @@ class AddBox extends Component {
     }
     handleSubmit = (event) => {
         let price;
+       
         console.log(this.state);
         event.preventDefault()
 
@@ -45,6 +47,8 @@ class AddBox extends Component {
         }).catch((error) => {
             console.log(error);
         })
+        
+    
      
 
     }
@@ -114,13 +118,13 @@ class AddBox extends Component {
 }
 function multiple(value, weight) {
     if (value === 'Sweden') {
-        return weight * 1.3 + ' SEK'
+        return Math.round(weight * 1.3) + ' SEK'
     } else if (value === 'China') {
-        return weight * 4 + ' CNY'
+        return Math.round(weight * 4) + ' CNY'
     } else if (value === 'Brazil') {
-        return weight * 8.6 + ' BRL'
+        return Math.round(weight * 8.6) + ' BRL'
     } else if (value === 'Australia') {
-        return weight * 7.2 + ' AUD'
+        return Math.round(weight * 7.2) + ' AUD'
     }
 
 }

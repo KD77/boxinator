@@ -11,15 +11,14 @@ class ListBoxes extends Component {
     }
     render() {
         const { boxes } = this.props;
-        console.log('data' + this.props.boxes);
+
         return (
             <div className='list'>
-
                 <table className="content-table">
                     <thead>
                         <tr>
                             <th>Reciever</th>
-                            <th>Weight</th>
+                            <th>Weight (Kg)</th>
                             <th>Box color</th>
                             <th>Shipping cost</th>
                         </tr>

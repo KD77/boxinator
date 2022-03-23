@@ -26,7 +26,6 @@ export const retrieveBox = () => async (dispatch) => {
       type: RETRIEVE_BOX,
       payload: res.data,
     });
-    console.log(res.data); // printing thhe data in action/boxes.js
   } catch (err) {
     console.log(err);
   }

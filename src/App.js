@@ -16,8 +16,9 @@ class App extends Component {
         <Router>
           <Navbar />
           <Routes>
+            <Route exact path="/" element={<AddBox />} />
             <Route exact path="/addbox" element={<AddBox />} />
-            <Route path="/listboxes" element={<ListBoxes />} />
+            <Route exact path="/listboxes" element={<ListBoxes />} />
           </Routes>
         </Router>
       </div>

@@ -12,13 +12,14 @@
     text-decoration: none;
     color: #fff;
     list-style-type: none;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 60px;
   }
   .nav ul {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    padding-right: 40px;
   }
   .nav ul li a {
     color: #000;
