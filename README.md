@@ -6,6 +6,12 @@ This is a small application for calculating the shipping cost for boxes to speci
 * MySQL
 * CSS
 
+### Addbox ###
+![](src/images/Addbox1.png)
+![](src/images/addbox2.png)
+
+### ListBoxes ###
+![](src/images/list.png)
 
 ## Configuration ##
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { ChromePicker } from 'react-color'
 import { createBox } from '../../actions/boxes'
-import {useNavigate} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import './addbox.css'
 
 class AddBox extends Component {
@@ -32,10 +32,12 @@ class AddBox extends Component {
             color: color.hex,
         })
     }
+    handelRedirect = (event) => {
+        this.props.history.push("/listboxes");
+    }
     handleSubmit = (event) => {
         let price;
-       
-        console.log(this.state);
+    
         event.preventDefault()
 
         const { name, weight, color, country } = this.state
@@ -43,13 +45,11 @@ class AddBox extends Component {
 
         this.props.createBox(name, weight, color, country, price).then((data) => {
             this.setState({ name: data.name, weight: data.weight, color: data.color, country: data.country, price: data.price, msg: data})
-            console.log(data);
+         this.handelRedirect(event)
         }).catch((error) => {
             console.log(error);
         })
         
-    
-     
 
     }
     handleChange = (event) => {
@@ -59,8 +59,8 @@ class AddBox extends Component {
 
     }
 
-
-    render() {
+  
+    render() {  
         return (
             <div className='add-container'>
                 <p className='pop-up'>{this.state.msg}</p>
@@ -103,7 +103,7 @@ class AddBox extends Component {
                                 </select>
                             </div>
                             <div>
-                                <button  className='btn'id='btn-submit' type="submit">save</button>
+                                <button className='btn'id='btn-submit' type="submit">save</button>
                             </div>
 
                         </div>
@@ -129,4 +129,4 @@ function multiple(value, weight) {
 
 }
 
-export default connect(null, { createBox })(AddBox);
+export default connect(null, { createBox })(withRouter(AddBox));

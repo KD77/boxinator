@@ -9,7 +9,7 @@
 }
 #contact input[type="text"],input[type="number"] {
   width: 100%;
-  border: 1px solid #ccc;
+  background: #FFF;
   background: #FFF;
   margin: 0 0 5px;
   padding: 10px;
@@ -29,15 +29,11 @@
     margin: 5px 0 5px;
     padding: 10px;
     font-size: 15px;
+    color: #515151;
   
   }
   
 
-  
-  #contact button[type="submit"]:active {
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-  }
-  
   #contact input:focus {
     outline: 0;
     border: 1px solid #aaa;
@@ -56,6 +52,8 @@
     padding:10px;
     border: 1px solid #ccc;
     outline: none;
+    background: #FFF;
+    color: #515151;
       
 }
 ul li{
@@ -69,5 +67,17 @@ ul li{
     background-color: #009879;
     border: none;
     color: #fff;
+
+}
+::placeholder {
+  color: #515151;
+  opacity: 1; 
 }
 
+:-ms-input-placeholder { 
+  color: #515151;
+}
+
+::-ms-input-placeholder { 
+  color: #515151;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
   BrowserRouter as Router, Switch,
-  Route, Routes
+  Route,
 } from "react-router-dom";
 import AddBox from './components/addbox/addbox'
 import ListBoxes from './components/list/listboxes'
@@ -15,11 +15,18 @@ class App extends Component {
       <div className="App">
         <Router>
           <Navbar />
-          <Routes>
-            <Route exact path="/" element={<AddBox />} />
-            <Route exact path="/addbox" element={<AddBox />} />
-            <Route exact path="/listboxes" element={<ListBoxes />} />
-          </Routes>
+          <Switch>
+            <Route exact path="/">
+              <AddBox />
+            </Route>
+            <Route exact path="/addbox">
+              <AddBox />
+            </Route>
+            <Route exact path="/listboxes">
+              <ListBoxes />
+            </Route>
+
+          </Switch>
         </Router>
       </div>
     );
